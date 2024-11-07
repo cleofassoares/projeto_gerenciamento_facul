@@ -22,7 +22,7 @@ public class AlunoController {
 
     @GetMapping("/{id}")
     public Aluno findById(@PathVariable Integer id){
-        return this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
+        return this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado"));
     }
 
     @PostMapping
@@ -38,7 +38,7 @@ public class AlunoController {
 
     @PutMapping("/{id}")
     public Aluno update (@PathVariable Integer id, @RequestBody AlunoRequestDTO dto ) {
-        Aluno aluno = this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
+        Aluno aluno = this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado"));
         aluno.setNome(dto.nome());
         aluno.setMatricula(dto.matricula());
         aluno.setEmail(dto.email());
@@ -49,7 +49,7 @@ public class AlunoController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
-        Aluno aluno = this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
+        Aluno aluno = this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado"));
 
         this.repository.delete(aluno);
     }
